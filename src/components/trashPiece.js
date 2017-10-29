@@ -4,7 +4,17 @@ import { DragSource } from 'react-dnd';
 
 const trashPieceSource = {
   beginDrag(props) {
-    return {};
+    return {
+      index: props.index
+    };
+  },
+
+  endDrag(props, monitor) {
+    const item = monitor.getItem();
+    
+    if (monitor.didDrop()) {
+      props.onTrashPieceDrop(props.index);
+    }
   }
 };
 
@@ -22,7 +32,7 @@ export function TrashPiece(props) {
     <div className="TrashPiece" style={{
       backgroundColor: isDragging ? '#aaaacc' : '#ccc'
     }}>
-      TrashPiece Component
+      {props.name}
     </div>
   );
 }

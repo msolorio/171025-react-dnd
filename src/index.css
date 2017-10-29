@@ -15,6 +15,10 @@ body {
   background: #555;
 }
 
+.targetOver {
+  background: #449955;
+}
+
 .trashPieceRow {
   display: flex;
 }
